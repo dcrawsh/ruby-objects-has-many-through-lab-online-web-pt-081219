@@ -1,17 +1,16 @@
-class Appointment 
-@@all = Array.new 
-attr_accessor :date, :patient, :doctor
+class Appointment
+  attr_accessor :date, :doctor, :patient
 
-def self.all 
-@@all  
-end 
+  @@all = []
 
-def inititalize(date, patient, doctor)
-@date = date 
-@patient = patient
-@doctor = doctor 
-Appointment.all << self 
-end 
+  def initialize(date, patient, doctor)
+    @date = date
+    @doctor = doctor
+    @patient = patient
+    @@all << self
+  end
 
-
-end 
+  def self.all
+    @@all
+  end
+end
