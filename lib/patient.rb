@@ -1,26 +1,26 @@
-class Patient 
-@@all = Array.new 
-attr_accessor :name 
+class Patient
+  attr_accessor :name
 
-def self.all 
-@@all  
-end 
- 
-def initialize(name)
-@name = name 
-Patient.all << self 
-end 
+  @@all = []
 
-def new_appointment(doctor,date)
-appointment = Appointment.new(date,self,doctor)
-end 
+  def initialize(name)
+    @name = name
+    @@all << self
+  end
 
-def appointments
-  Appointment.all.select {|apps| apps.patient == self}
-end 
+  def self.all
+    @@all
+  end
 
-def doctors
-  appointments.collect {|apps| apps.doctors}
-end 
+  def new_appointment(doctor, date)
+    Appointment.new(date, self, doctor)
+  end
 
-end 
+  def appointments
+    Appointment.all.select { |appointment| appointment.patient == self }
+  end
+
+  def doctors
+    appointments.map(&:doctor)
+  end
+end
