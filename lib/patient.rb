@@ -1,6 +1,7 @@
 class Patient 
 @@all = Array.new 
 attr_accessor :name 
+
 def self.all 
 @@all  
 end 
