@@ -5,7 +5,7 @@ def self.all
 @@all  
 end 
 
-def inititalize(date,patient,doctor)
+def inititalize(date, patient, doctor)
 @date = date 
 @patient = patient
 @doctor = doctor 
