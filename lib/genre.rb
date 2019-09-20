@@ -8,6 +8,7 @@ end
 
 def initialize(name)
 @name = name 
+Genre.all << self 
 end
 
 def songs 
